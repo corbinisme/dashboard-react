@@ -18,8 +18,11 @@ function Good() {
       }, []);
 
     return (
-        <>
-        <h2>Good widget</h2>
+        <div className="portlet card">
+            <header className="card-header">
+            <h2>Good widget</h2>
+            </header>
+            <div className="card-body">
         {(post? post.map(item=>{
             return(
                
@@ -36,9 +39,9 @@ function Good() {
                 </div>
                 
                
-            )
-        }) : <div>Loading</div>)}
-        </>
+            )} ) : <div>Loading</div>)}
+            </div>
+        </div>
     )
 }
 export default Good;

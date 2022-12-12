@@ -18,8 +18,11 @@ function Autoevolution() {
       }, []);
 
     return (
-        <>
-        <h2>Autoevolution Widget</h2>
+        <div className="card portlet">
+            <header className="card-header">
+            <h2>Autoevolution Widget</h2>
+            </header>
+            <div className="card-body">
         {(post? post.map(item=>{
             return(
                
@@ -38,7 +41,8 @@ function Autoevolution() {
                
             )
         }) : <div>Loading</div>)}
-        </>
+        </div>
+        </div>
     )
 }
 export default Autoevolution;

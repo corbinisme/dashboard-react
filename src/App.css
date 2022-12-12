@@ -1,6 +1,54 @@
-body {
+:root {
+  /* Variables for default theme (light-mode) */
+  --background-color: white;
+  --text-color: black;  
+  --footer-bg-grad-stop: #eee;
+  --navbarBG: "url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%280, 0, 0, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e)";
+  --hymnSelectBGStart: #6facd5;
+  --hymnSelectBGStop: #497bae;
+  --headerBG: #eee;
+  --headerBorder: #122e4a;
+  --pageHeight: 115px;
+}
+.App[data-theme="dark"] {
+  /* Variables for dark mode */
+  --background-color: black;
+  --text-color: white;   
+  --footer-bg-grad-stop: #111;
+  --navbarBG: "url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%255, 255, 255, 0.55%29%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e)";
+  --hymnSelectBGStart: #333;
+  --hymnSelectBGStop: #333;
+  --headerBG: #222;
+  --headerBorder: #000;
+}
+
+.App {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all ease 0.3s;
   padding-top: 80px;
 }
+.App .navbar {
+  background-color: var(--headerBG);
+  color: var(--text-color);
+  border-bottom: 1px solid var(--headerBorder);
+}
+.App .navbar li a {
+    color: var(--text-color)!important;
+  
+}
+
+.App .portlet.card {
+  background-color: var(--headerBG);
+  color: var(--text-color);
+  border: 1px solid var(--headerBorder);
+}
+.App .portlet.card .card, .App .portlet.card .card-body  {
+  background-color: transparent;
+  background-color: var(--background-color);
+}
+
+
 .navbar-brand img {
   width: 60px;
 }
@@ -18,7 +66,42 @@ body {
 #navbarResponsive {
   justify-content: end;
 }
-#mainNav {
-  background: #fff;
-  border-bottom: 1px solid #64a19d;
+
+
+
+
+.column {
+  height: 100px;
+  width: 46%;
+  margin: 1%;
+  float: left;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.first-column {
+  background-color: #f5ffea;
+}
+
+.second-column {
+  background-color: #fffbf5;
+}
+
+.movable-item {
+  border-radius: 10px;
+  background-color: #fff3f3;
+  height: 100px;
+  width: 170px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+}
+
+.dragzone {
+  background-color: #eee;
 }
