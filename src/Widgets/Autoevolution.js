@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SwiperComponent from './Swiper';
 
 
 function Autoevolution() {
@@ -18,30 +19,15 @@ function Autoevolution() {
       }, []);
 
     return (
-        <div className="card portlet">
+        <div className="card portlet widget_auto">
             <header className="card-header">
             <h2>Autoevolution Widget</h2>
             </header>
             <div className="card-body">
-        {(post? post.map(item=>{
-            return(
-               
-                <div key={item.guid}>
-                    <a href={item.link} target="_blank">
-                    <h3>{item.title}</h3>
-                    <img src={item.enclosure.link} width="200" />
-                    </a>
-                    <br />
-                    <span dangerouslySetInnerHTML={{ __html: item.description }}>
-                       
-                    </span>
-                    <hr />
-                </div>
-                
-               
-            )
-        }) : <div>Loading</div>)}
-        </div>
+
+                <SwiperComponent data={post} slidesper={1} />
+       
+            </div>
         </div>
     )
 }

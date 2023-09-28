@@ -4,12 +4,12 @@ import Header from "../Components/Header";
 
 // Not touching Column components. Will modify them later
 
-function Layout() {
+function Layout(props) {
 
 
     return (
     <>
-        <Header />
+        <Header themeChange={props.themeChange} theme={props.theme} />
         <div className="wrapper mt-4 container">
         
             <Outlet />

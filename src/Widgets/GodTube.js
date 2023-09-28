@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 function GodTube() {
 
@@ -66,10 +71,25 @@ function GodTube() {
                
             </header>
             <div className="flex" style={{"display": "flex", "overflow": "auto"}}>
+            
+            
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={10}
+                slidesPerView={4}
+                navigation
+                pagination={{ clickable: true }}
+
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}
+                >
+ 
+
             {post && post.map(p=>{
 
                 return(
-                <div key={p.link} className="card p-2 col-sm-3">
+                   
+                <SwiperSlide key={p.link} className="card p-2 col-sm-3">
                         <a href={p.link} target="_blank">
                             <span className='featuredImage'>
                                 <img src={p.image} />
@@ -77,11 +97,13 @@ function GodTube() {
                             
                             <span>{p.title}</span>
                         </a>
-                    </div>
+                    </SwiperSlide>
                 )
             })}
+            </Swiper>
             </div>
         </div>
+        
     )
 }
 export default GodTube;

@@ -48,6 +48,12 @@
   background-color: var(--background-color);
 }
 
+.nav-item .nav-link {
+  margin-right: 5px;
+}
+.nav-item .nav-link svg {
+  margin-right: 4px;
+}
 
 .navbar-brand img {
   width: 60px;
@@ -104,4 +110,25 @@
 
 .dragzone {
   background-color: #eee;
+}
+
+
+.navbar-brand span {
+  color: var(--text-color);
+  display: inline-block;
+}
+.navbar-brand span em {
+  color: blueviolet;
+  font-style: normal;
+  display: inline-block;
+  margin-left: 1px;
+}
+
+.swiper {
+  height: 300px;
+}
+
+.widget_good .swiper, .widget_auto .swiper {
+  min-height: 550px;
+  
 }

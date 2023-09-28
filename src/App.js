@@ -25,26 +25,34 @@ function App() {
   ];
 
   const [items, setItems] = useState(elements);
-
+  const updateTheme = (val) => {
+    let newTheme =(val=="dark" ? "light" : "dark");
+    console.log("update", newTheme)
+    setTheme(newTheme)
+  }
   return (
     <div className="App" data-theme={theme}>
       <DndProvider backend={HTML5Backend}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Layout themeChange={updateTheme} theme={theme} />}>
             <Route index element={<Happy />} />
             <Route path="*" element={<NoPage />} />
             <Route path="educational" element={<Educational />} />
             <Route path="entertainment" element={<Entertainment />} />
           </Route>
         </Routes>
+  
       </BrowserRouter>
+     
       </DndProvider>
 
-    <hr />
-    <div className="dragzone">
-    <DragAndDropList items={items} />
-    </div>
+
+      <footer>
+        <button className="btn btn-outline-secondary" onClick={() => updateTheme(theme)}>
+          Change Theme
+        </button>
+      </footer>
     </div>
   );
 }

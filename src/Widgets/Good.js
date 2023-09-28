@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import SwiperComponent from './Swiper';
 
-
-function Good() {
+function Good(props) {
 
     const [post, setPost] = useState();
     //const goodUrl = "proxy.php?url=https://www.goodnewsnetwork.org/feed/";
@@ -18,28 +18,13 @@ function Good() {
       }, []);
 
     return (
-        <div className="portlet card">
+        <div className="portlet card widget_good">
             <header className="card-header">
             <h2>Good widget</h2>
             </header>
             <div className="card-body">
-        {(post? post.map(item=>{
-            return(
-               
-                <div key={item.guid}>
-                    <a href={item.link} target="_blank">
-                        <h3>{item.title}</h3>
-                        <img src={item.enclosure.link} width="200" />
-                    </a>
-                    <br />
-                    <span dangerouslySetInnerHTML={{ __html: item.description }}>
-                       
-                    </span>
-                    <hr />
-                </div>
-                
-               
-            )} ) : <div>Loading</div>)}
+                <SwiperComponent data={post} slidesper={1} />
+       
             </div>
         </div>
     )

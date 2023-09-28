@@ -3,7 +3,7 @@ import Good from "../Widgets/Good";
 import Autoevolution from "../Widgets/Autoevolution";
 import GodTube from "../Widgets/GodTube";
 //import MovableItem from "../Components/MovableItem";
-
+import SwiperComponent from '../Widgets/Swiper';
 
 import MovableItem from "../Components/MovableItem"
 import Column from "../Components/Column";
@@ -42,11 +42,12 @@ function Happy() {
             <GodTube />
 
             <hr />
+
             <div className="row">
-                <div className="col">
+                <div className="col-sm-6">
                     <Good />
                 </div>
-                <div className="col">
+                <div className="col-sm-6">
                     <Autoevolution />
                 </div>
             </div>
