@@ -17,8 +17,21 @@ function MakeUseOf(props) {
         .then(response=>response.json())
         .then(dat=>{
             console.log("makeuseof",dat)
-            
-            setPost(dat.items)
+            let tempArr = [];
+            dat.forEach(function(item){
+                let thisArr = {
+                    title: item.title,
+                    link: item.guid,
+                    enclosure: {
+                        link: item.image
+                    },
+                    description: item.description
+                };
+                console.warn("makeuseof item",item)
+                tempArr.push(thisArr);
+            });
+            console.log("makeuseof update",tempArr)
+            setPost(tempArr)
         }).catch(e=>console.log(e));
       }, []);
 
@@ -28,7 +41,7 @@ function MakeUseOf(props) {
             <h2>Makeuseof widget</h2>
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={1} />
+                <SwiperComponent data={post} slidesper={2} />
        
             </div>
         </div>

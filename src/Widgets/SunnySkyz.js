@@ -11,7 +11,7 @@ function SunnySkyz(props) {
         fetch(goodUrl)
         .then(response=>response.json())
         .then(dat=>{
-            console.log("sunny skies",dat)
+
             let tempArr = [];
             dat.forEach(function(item){
                 console.log(item)
@@ -25,7 +25,7 @@ function SunnySkyz(props) {
                 };
                 tempArr.push(thisArr);
             })
-            console.log("foxgoodtempArr", tempArr)
+
             setPost(tempArr)
         }).catch(e=>console.log(e));
       }, []);

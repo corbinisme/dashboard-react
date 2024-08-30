@@ -9,14 +9,14 @@ function FoxGood(props) {
     //https://www.foxnews.com/category/good-news
     const goodUrl = 'https://www.foxnews.com/api/article-search?searchBy=tags&values=fox-news%2Fgood-news&excludeBy=tags&excludeValues=&size=11&from=0&mediaTags=good_news';
     useEffect(() => {
-        console.log('trigger use effect hook');
+
         fetch(goodUrl)
         .then(response=>response.json())
         .then(dat=>{
-            console.log("fox good",dat)
+   
             let tempArr = [];
             dat.forEach(function(item){
-                console.log(item)
+        
                 let thisArr = {
                     title: item.title,
                     link: item.url,
@@ -27,7 +27,7 @@ function FoxGood(props) {
                 };
                 tempArr.push(thisArr);
             })
-            console.log("foxgoodtempArr", tempArr)
+          
             setPost(tempArr)
         });
       }, []);
