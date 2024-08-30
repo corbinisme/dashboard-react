@@ -33,9 +33,16 @@
   color: var(--text-color);
   border-bottom: 1px solid var(--headerBorder);
 }
-.App .navbar li a {
+.App .header a {
     color: var(--text-color)!important;
   
+}
+.App #mainNav {
+  background-color: var(--headerBG);
+}
+.App #mainNav .d-flex {
+  justify-content: space-between;
+  align-items: center;
 }
 
 .App .portlet.card {
