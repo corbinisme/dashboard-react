@@ -9,6 +9,7 @@ import 'swiper/css/scrollbar';
 function SwiperComponent(props) {
 
 
+    console.log("swiper component", props.data)
     return (
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -25,11 +26,14 @@ function SwiperComponent(props) {
                     <SwiperSlide key={p.link} className="card p-2 col-sm-3">
                         <a href={p.link} target="_blank">
                             <img src={p.enclosure.link} className="card-img-top" />
-                            <div className="card-body">
-                                <h5 className="card-title">{p.title}</h5>
-                                <p className="card-text">{p.description}</p>
-                            </div>
                         </a>
+                            <div className="card-body">
+                            <a href={p.link} target="_blank">
+                                <h5 className="card-title">{p.title}</h5>
+                                </a>
+                                <p className="card-text" dangerouslySetInnerHTML={{__html: p.description}}></p>
+                            </div>
+                        
                     </SwiperSlide>
                 )
             })}

@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import SwiperComponent from './Swiper';
 
 function GodTube() {
 
@@ -13,13 +8,10 @@ function GodTube() {
 
 
     const paths = [
-        {name: 'Popular', path: ''},
-        {name: 'Comedy', path: 'comedy-videos/'},
-        {name: 'Ministry', path: 'ministry-videos/'},
-        {name: 'Cute', path: 'cute-videos/'},
-        {name: 'Movies', path: 'movies/'},
-        {name: 'Inspirational', path: 'inspirational-videos/'},
-        {name: 'Music', path: 'music-videos/'}
+        {name: 'Popular', path: 'most-popular'},
+        {name: 'Cute', path: 'cute-videos'},
+        {name: 'Inspirational', path: 'inspirational-videos'},
+        {name: 'Music', path: 'music-videos'}
         
     ]
 
@@ -30,14 +22,28 @@ function GodTube() {
    
         
         let thisPath = paths.filter(t=>t.name==path)[0].path
-        const goodUrl = "/util/godtube_scrape.php?path=" + thisPath;
-        console.log(thisPath, goodUrl)
+        const goodUrl = `util/proxy.php?url=https://www.godtube.com/media/sort/?categoryUrl=${thisPath}&sort=MostPopular&time=Today&page=1&size=15`;
+        //const goodUrl = "util/godtube_scrape.php?path=" + thisPath;
+        console.log("loading this",thisPath, goodUrl)
         
         fetch(goodUrl)
         .then(response=>response.json())
         .then(dat=>{
-            console.log(dat)
-            setPost(dat.data)
+            console.log("godtube", dat, dat.data);
+            let tempArr = [];
+            dat.data.forEach(function(item){
+
+                let thisArr = {
+                    title: item.name,
+                    link: item.siteUrl,
+                    enclosure: {
+                        link: item.mediaPreviewUrl
+                    },
+                    description: item.description
+                };
+                tempArr.push(thisArr);
+            })
+            setPost(tempArr)
         });
          
       }, [path]);
@@ -70,37 +76,9 @@ function GodTube() {
                 </div>
                
             </header>
-            <div className="flex" style={{"display": "flex", "overflow": "auto"}}>
-            
-            
-            <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={10}
-                slidesPerView={4}
-                navigation
-                pagination={{ clickable: true }}
-
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-                >
- 
-
-            {post && post.map(p=>{
-
-                return(
-                   
-                <SwiperSlide key={p.link} className="card p-2 col-sm-3">
-                        <a href={p.link} target="_blank">
-                            <span className='featuredImage'>
-                                <img src={p.image} />
-                            </span>
-                            
-                            <span>{p.title}</span>
-                        </a>
-                    </SwiperSlide>
-                )
-            })}
-            </Swiper>
+            <div className="card-body">
+                <SwiperComponent data={post} slidesper={2} />
+       
             </div>
         </div>
         
