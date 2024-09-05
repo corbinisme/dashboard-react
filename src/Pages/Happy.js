@@ -7,6 +7,7 @@ import SunnySkyz from '../Widgets/SunnySkyz';
 import MakeUseOf from '../Widgets/MakeUseOf';
 import BibleVOD from '../Widgets/BibleVOD';
 import WOTD from '../Widgets/WOTD';
+import ThingsToBeHappyAbout from '../Widgets/ThingsToBeHappyAbout';
 //import MovableItem from "../Components/MovableItem";
 import SwiperComponent from '../Widgets/Swiper';
 
@@ -61,6 +62,10 @@ function Happy() {
                 <div className='col-sm-6'>
                     <WOTD />
                 </div>
+                <div className='col-sm-12'>
+                    <ThingsToBeHappyAbout />
+                </div>
+                
 
                 <div className="col-sm-6">
                 <FoxGood />
