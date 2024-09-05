@@ -6,6 +6,7 @@ import FoxGood from "../Widgets/FoxGood";
 import SunnySkyz from '../Widgets/SunnySkyz';
 import MakeUseOf from '../Widgets/MakeUseOf';
 import BibleVOD from '../Widgets/BibleVOD';
+import WOTD from '../Widgets/WOTD';
 //import MovableItem from "../Components/MovableItem";
 import SwiperComponent from '../Widgets/Swiper';
 
@@ -44,18 +45,21 @@ function Happy() {
 
             <div className="wrapper mt-4 container">
 
-            <GodTube />
+           
            
 
-            <hr />
+    
 
             <div className="row">
+                <div className='col-sm-12'>
+                    <GodTube />
+                </div>  
                 <div className='col-sm-6'>
                     <BibleVOD />
                 </div>
 
                 <div className='col-sm-6'>
-
+                    <WOTD />
                 </div>
 
                 <div className="col-sm-6">

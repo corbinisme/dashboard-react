@@ -49,6 +49,7 @@
   background-color: var(--headerBG);
   color: var(--text-color);
   border: 1px solid var(--headerBorder);
+  margin-bottom: 2em;
 }
 .App .portlet.card .card, .App .portlet.card .card-body  {
   background-color: transparent;

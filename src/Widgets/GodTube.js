@@ -61,8 +61,8 @@ function GodTube() {
                     <div className="col">
                         <h2>GodTube</h2>
                     </div>
-                    <div className="col text-end">
-                        <select className="form-select w-auto" value={path} onChange={(e)=>pathChange(e)}>
+                    <div className="col text-end d-flex justify-content-end">
+                        <select title="subtopic" name="Subtopic" className="form-select w-auto" value={path} onChange={(e)=>pathChange(e)}>
                             {paths.map(p=>{
 
                                 let activeClass = (p.name == path? "selected": false);
