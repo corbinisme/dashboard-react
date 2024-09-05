@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import SwiperComponent from './Swiper';
 
 
-function Autoevolution() {
+function Autoevolution(props) {
 
+    const slidesper = props.slidesper? props.slidesper: 3;
     const [post, setPost] = useState();
     //const goodUrl = "proxy.php?url=https://www.goodnewsnetwork.org/feed/";
     //  
@@ -25,7 +26,7 @@ function Autoevolution() {
             </header>
             <div className="card-body">
 
-                <SwiperComponent data={post} slidesper={1} />
+                <SwiperComponent data={post} slidesper={slidesper} />
        
             </div>
         </div>

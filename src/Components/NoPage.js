@@ -5,7 +5,7 @@ function NoPage() {
 
     return (
     <>
-        <div className="wrapper mt-4 container">
+        <div className="wrapper mt-4 container text-center">
             Oops
         </div>
     </>

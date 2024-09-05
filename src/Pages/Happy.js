@@ -4,9 +4,9 @@ import Autoevolution from "../Widgets/Autoevolution";
 import GodTube from "../Widgets/GodTube";
 import FoxGood from "../Widgets/FoxGood";
 import SunnySkyz from '../Widgets/SunnySkyz';
-import MakeUseOf from '../Widgets/MakeUseOf';
+
 import BibleVOD from '../Widgets/BibleVOD';
-import WOTD from '../Widgets/WOTD';
+
 import ThingsToBeHappyAbout from '../Widgets/ThingsToBeHappyAbout';
 //import MovableItem from "../Components/MovableItem";
 import SwiperComponent from '../Widgets/Swiper';
@@ -19,7 +19,6 @@ function Happy() {
     const widgets = {
         GOOD: <Good />,
         GODTUBE: <GodTube />,
-        AUTOEVOLUTION: <Autoevolution />,
         FOXGOOD: <FoxGood />
     }
     let layoutInit = [
@@ -58,10 +57,10 @@ function Happy() {
                 <div className='col-sm-6'>
                     <BibleVOD />
                 </div>
-
-                <div className='col-sm-6'>
-                    <WOTD />
+                <div className="col-sm-6">
+                    <Good />
                 </div>
+
                 <div className='col-sm-12'>
                     <ThingsToBeHappyAbout />
                 </div>
@@ -73,15 +72,8 @@ function Happy() {
                 <div className="col-sm-6">
                 <SunnySkyz />
                 </div>
-                <div className="col-sm-6">
-                    <Good />
-                </div>
-                <div className="col-sm-6">
-                    <Autoevolution />
-                </div>
-                <div className="col-sm-12">
-                    <MakeUseOf />
-                </div>
+                
+               
             </div>
             
             

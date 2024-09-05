@@ -139,3 +139,37 @@
   height: 350px;
   overflow: auto;
 }
+
+.desktopmenu {
+  display: flex;
+  flex-direction: row;
+}
+.menutoggle {
+  display: none;
+}
+.headercontainer>a {
+  position: relative;
+  z-index: 4;
+}
+@media (max-width: 768px) {
+  .menutoggle {
+    display: block;
+    cursor: pointer;
+    padding: 0.5em;
+  }
+  .desktopmenu {
+    flex-direction: column;
+    position: absolute;
+    top: 4.2em;
+    left: 0;
+    width: 100%;
+    background-color: var(--headerBG);
+    background-image: var(--navbarBG);
+    transform: translateY(-100vh);
+    transition: all ease .4s;
+    z-index: 1;
+  }
+  .desktopmenu.shown {
+    transform: translateY(0);
+  }
+}
