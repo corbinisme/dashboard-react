@@ -24,12 +24,12 @@ function GodTube() {
         let thisPath = paths.filter(t=>t.name==path)[0].path
         const goodUrl = `util/proxy.php?url=https://www.godtube.com/media/sort/?categoryUrl=${thisPath}&sort=MostPopular&time=Today&page=1&size=15`;
         //const goodUrl = "util/godtube_scrape.php?path=" + thisPath;
-        console.log("loading this",thisPath, goodUrl)
+
         
         fetch(goodUrl)
         .then(response=>response.json())
         .then(dat=>{
-            console.log("godtube", dat, dat.data);
+            //console.log("godtube", dat, dat.data);
             let tempArr = [];
             dat.data.forEach(function(item){
 
@@ -48,8 +48,9 @@ function GodTube() {
          
       }, [path]);
     
-      const pathChange= function(thisPath){
-        console.log(thisPath)
+      const pathChange= function(e){
+        //console.log(thisPath)
+        let thisPath = e.target.value;
         setPath(thisPath)
       }
 
@@ -58,26 +59,26 @@ function GodTube() {
             <header className="card-header">
                 <div className="row">
                     <div className="col">
-                        <h2>GodTube {path}</h2>
+                        <h2>GodTube</h2>
                     </div>
-                    <div className="col text-right align-right" style={{textAlign: "right"}}>
-                        <div className="btn-group">
+                    <div className="col text-end">
+                        <select className="form-select w-auto" value={path} onChange={(e)=>pathChange(e)}>
                             {paths.map(p=>{
 
-                                let activeClass = (p.name == path? "active": "");
+                                let activeClass = (p.name == path? "selected": false);
                                 return(
-                                    <button className={`btn btn-secondary ${activeClass}`} onClick={()=>pathChange(p.name)} key={p.name}>
+                                    <option key={p.name}>
                                         {p.name}
-                                    </button>
+                                    </option>
                                 )
                             })}
-                        </div>
+                        </select>
                     </div>
                 </div>
                
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={2} />
+                <SwiperComponent data={post} slidesper={3} />
        
             </div>
         </div>

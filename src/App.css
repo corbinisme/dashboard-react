@@ -132,10 +132,5 @@
 }
 
 .swiper {
-  height: 300px;
-}
-
-.widget_good .swiper, .widget_auto .swiper {
-  min-height: 550px;
-  
+  height: 400px;
 }

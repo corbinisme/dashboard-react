@@ -16,7 +16,7 @@ function MakeUseOf(props) {
         fetch("util/loadRSS.php?url=http://feeds.feedburner.com/makeuseof/pMkw")
         .then(response=>response.json())
         .then(dat=>{
-            console.log("makeuseof",dat)
+            
             let tempArr = [];
             dat.forEach(function(item){
                 let thisArr = {
@@ -27,7 +27,7 @@ function MakeUseOf(props) {
                     },
                     description: item.description
                 };
-                console.warn("makeuseof item",item)
+                
                 tempArr.push(thisArr);
             });
             console.log("makeuseof update",tempArr)
@@ -41,7 +41,7 @@ function MakeUseOf(props) {
             <h2>Makeuseof widget</h2>
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={2} />
+                <SwiperComponent data={post} slidesper={3} />
        
             </div>
         </div>

@@ -5,6 +5,7 @@ import GodTube from "../Widgets/GodTube";
 import FoxGood from "../Widgets/FoxGood";
 import SunnySkyz from '../Widgets/SunnySkyz';
 import MakeUseOf from '../Widgets/MakeUseOf';
+import BibleVOD from '../Widgets/BibleVOD';
 //import MovableItem from "../Components/MovableItem";
 import SwiperComponent from '../Widgets/Swiper';
 
@@ -49,6 +50,13 @@ function Happy() {
             <hr />
 
             <div className="row">
+                <div className='col-sm-6'>
+                    <BibleVOD />
+                </div>
+
+                <div className='col-sm-6'>
+
+                </div>
 
                 <div className="col-sm-6">
                 <FoxGood />

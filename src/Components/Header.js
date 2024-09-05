@@ -10,7 +10,7 @@ function Header(props) {
                 <div className="container-fluid">
 
 
-                <div class="d-flex justify-content-space-between">
+                <div className="d-flex justify-content-space-between">
                 <a className="navbar-brand js-scroll-trigger" href="#page-top">
                         <img src="img/goat2.png" />
                         <span>Corbin<em>rose</em></span>

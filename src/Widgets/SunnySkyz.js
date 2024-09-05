@@ -5,6 +5,7 @@ function SunnySkyz(props) {
 
     const [post, setPost] = useState();
     
+    let max = 6;
     const goodUrl = 'util/loadRSS.php?url=https://feeds.feedburner.com/SunnySkyz';
     useEffect(() => {
         
@@ -13,17 +14,33 @@ function SunnySkyz(props) {
         .then(dat=>{
 
             let tempArr = [];
+            let counter = 0;
             dat.forEach(function(item){
-                console.log(item)
+                
+
+                let description = item.description;
+                // extract image from description
+                let regex = /<img.*?src="(.*?)"/;
+                let imageUrl = regex.exec(description);
+                if(imageUrl){
+                    imageUrl = imageUrl[1];
+                }
+                // remove image from description
+                //description = description.replace(/<img.*?src="(.*?)"/, "");
+                item.description = "";
                 let thisArr = {
-                    title: item.title,
-                    link: item.link,
+                    title: item.title.replace(/#039;/g, "'"),
+                    link: item.guid,
                     enclosure: {
-                        link: item.imageUrl
+                        link: imageUrl
                     },
                     description: item.description
                 };
-                tempArr.push(thisArr);
+                if(counter < max){
+                    counter++;
+                    tempArr.push(thisArr);
+                }
+                
             })
 
             setPost(tempArr)

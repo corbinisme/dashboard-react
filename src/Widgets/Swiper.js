@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y, Responsive } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -8,15 +8,32 @@ import 'swiper/css/scrollbar';
 
 function SwiperComponent(props) {
 
-
-    console.log("swiper component", props.data)
+    let slidesPer = props.slidesper;
+    if(!slidesPer){
+        slidesPer = 2;
+    }
     return (
         <Swiper
             modules={[Navigation, Pagination, Scrollbar, A11y]}
-            spaceBetween={50}
-            slidesPerView={props.slidesper}
+            
             navigation
             pagination={{ clickable: true }}
+            breakpoints={
+                {
+                    640: {
+                        slidesPerView: slidesPer-2>0?slidesPer-2:1,
+                        spaceBetween: 20
+                    },
+                    768: {
+                        slidesPerView: slidesPer-1>0?slidesPer-1:1,
+                        spaceBetween: 40
+                    },
+                    1024: {
+                        slidesPerView: slidesPer,
+                        spaceBetween: 50
+                    }
+                }
+            }
 
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
