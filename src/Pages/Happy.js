@@ -4,7 +4,7 @@ import Autoevolution from "../Widgets/Autoevolution";
 import GodTube from "../Widgets/GodTube";
 import FoxGood from "../Widgets/FoxGood";
 import SunnySkyz from '../Widgets/SunnySkyz';
-
+import Positive from '../Widgets/Positive';
 import BibleVOD from '../Widgets/BibleVOD';
 
 import ThingsToBeHappyAbout from '../Widgets/ThingsToBeHappyAbout';
@@ -51,11 +51,15 @@ function Happy() {
     
 
             <div className="row">
+                <div className="col-sm-12 verseoftheday">
+                    <BibleVOD />
+                </div>
                 <div className='col-sm-12'>
                     <GodTube />
                 </div>  
                 <div className='col-sm-6'>
-                    <BibleVOD />
+                    
+                    <Positive />
                 </div>
                 <div className="col-sm-6">
                     <Good />
@@ -72,6 +76,7 @@ function Happy() {
                 <div className="col-sm-6">
                 <SunnySkyz />
                 </div>
+               
                 
                
             </div>
