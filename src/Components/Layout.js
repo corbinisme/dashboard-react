@@ -10,7 +10,7 @@ function Layout(props) {
     return (
     <>
         <Header themeChange={props.themeChange} theme={props.theme} />
-        <div className="wrapper mt-4 container">
+        <div className="wrapper mt-4 container-fluid">
         
             <Outlet />
       

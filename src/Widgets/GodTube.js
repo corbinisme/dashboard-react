@@ -78,7 +78,7 @@ function GodTube() {
                
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={3} />
+                <SwiperComponent data={post} slidesper={2} />
        
             </div>
         </div>

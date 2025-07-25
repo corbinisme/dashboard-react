@@ -27,7 +27,7 @@ function App() {
   const [items, setItems] = useState(elements);
   const updateTheme = (val) => {
     let newTheme =(val=="dark" ? "light" : "dark");
-    console.log("update", newTheme)
+
     setTheme(newTheme)
   }
   return (

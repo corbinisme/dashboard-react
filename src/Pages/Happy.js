@@ -43,39 +43,42 @@ function Happy() {
         <>
 
 
-            <div className="wrapper mt-4 container">
+            <div className="wrapper mt-4 container-fluid">
 
            
            
 
-    
+       
 
             <div className="row">
-                <div className="col-sm-12 verseoftheday">
+                <div className="col-md-12 verseoftheday">
                     <BibleVOD />
                 </div>
-                <div className='col-sm-12'>
-                    <GodTube />
-                </div>  
-                <div className='col-sm-6'>
+                 
+                
+                <div className="col-md-12">
+                <FoxGood />
+                </div>
+                <div className="col-md-12">
+                <SunnySkyz />
+                </div>
+
+                <div className='col-md-12'>
+                    <ThingsToBeHappyAbout />
+                </div>
+                <div className='col-md-6'>
                     
                     <Positive />
                 </div>
-                <div className="col-sm-6">
+                <div className="col-md-6">
                     <Good />
                 </div>
-
-                <div className='col-sm-12'>
-                    <ThingsToBeHappyAbout />
-                </div>
+                <div className='col-md-12'>
+                    <GodTube />
+                </div> 
                 
 
-                <div className="col-sm-6">
-                <FoxGood />
-                </div>
-                <div className="col-sm-6">
-                <SunnySkyz />
-                </div>
+                
                
                 
                

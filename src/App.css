@@ -131,7 +131,7 @@
 }
 
 .swiper {
-  height: 400px;
+  height: 450px;
 }
 
 
@@ -172,4 +172,8 @@
   .desktopmenu.shown {
     transform: translateY(0);
   }
+}
+
+.menutoggle {
+  width: 44px;
 }

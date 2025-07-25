@@ -14,6 +14,7 @@ function SwiperComponent(props) {
     }
     return (
         <Swiper
+        key={props.data && "key_" + props.data.length}
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             
             navigation
@@ -35,14 +36,15 @@ function SwiperComponent(props) {
                 }
             }
 
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            
             >
             {props.data && props.data.map(p=>{
+   
+                let imageUrl = p.enclosure && p.enclosure.link ? p.enclosure.link : "https://placehold.co/600x400/EEE/31343C?text=No+Image";
                 return(
                     <SwiperSlide key={p.link} className="card p-2 col-sm-3">
                         <a href={p.link} target="_blank">
-                            <img src={p.enclosure.link} className="card-img-top" />
+                            <img src={imageUrl} className="card-img-top" />
                         </a>
                             <div className="card-body">
                             <a href={p.link} target="_blank">

@@ -53,7 +53,7 @@ function SunnySkyz(props) {
             <h2>SunnySkyz widget</h2>
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={1} />
+                <SwiperComponent data={post} slidesper={3} />
        
             </div>
         </div>

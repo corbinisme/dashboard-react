@@ -1,27 +1,28 @@
+
+
 import React, { useState, useEffect } from 'react';
 import SwiperComponent from './Swiper';
 
-function FoxGood(props) {
+function Cheezeburger(props) {
 
     const [post, setPost] = useState();
-    //const goodUrl = "proxy.php?url=https://www.goodnewsnetwork.org/feed/";
-    //  
-    //https://www.foxnews.com/category/good-news
-    const goodUrl = 'https://www.foxnews.com/api/article-search?searchBy=tags&values=fox-news%2Fgood-news&excludeBy=tags&excludeValues=&size=11&from=0&mediaTags=good_news';
+    let urlformat = "https://www.cheezburger.com/rss";
+    const cheezeburgerUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + urlformat;
+
     useEffect(() => {
 
-        fetch(goodUrl)
+        fetch(cheezeburgerUrl)
         .then(response=>response.json())
         .then(dat=>{
-   
+            console.log("cheezeburger data", dat);
             let tempArr = [];
-            dat.forEach(function(item){
+            dat.items.forEach(function(item){
         
                 let thisArr = {
                     title: item.title,
                     link: item.url,
                     enclosure: {
-                        link: item.imageUrl
+                        link: item.thumbnail
                     },
                     description: item.description
                 };
@@ -35,7 +36,7 @@ function FoxGood(props) {
     return (
         <div className="portlet card widget_good">
             <header className="card-header">
-            <h2>Fox Good widget</h2>
+            <h2>Cheezeburger widget</h2>
             </header>
             <div className="card-body">
                 <SwiperComponent data={post} slidesper={3} />
@@ -44,4 +45,4 @@ function FoxGood(props) {
         </div>
     )
 }
-export default FoxGood;
+export default Cheezeburger;

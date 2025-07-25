@@ -1,21 +1,22 @@
+
+
 import React, { useState, useEffect } from 'react';
 import SwiperComponent from './Swiper';
 
-function FoxGood(props) {
+function Devto(props) {
 
     const [post, setPost] = useState();
-    //const goodUrl = "proxy.php?url=https://www.goodnewsnetwork.org/feed/";
-    //  
-    //https://www.foxnews.com/category/good-news
-    const goodUrl = 'https://www.foxnews.com/api/article-search?searchBy=tags&values=fox-news%2Fgood-news&excludeBy=tags&excludeValues=&size=11&from=0&mediaTags=good_news';
+    let urlformat = "https://dev.to/feed";
+    const devtoUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + urlformat;
+
     useEffect(() => {
 
-        fetch(goodUrl)
+        fetch(devtoUrl)
         .then(response=>response.json())
         .then(dat=>{
-   
+            console.log("devto data", dat);
             let tempArr = [];
-            dat.forEach(function(item){
+            dat.items.forEach(function(item){
         
                 let thisArr = {
                     title: item.title,
@@ -35,13 +36,13 @@ function FoxGood(props) {
     return (
         <div className="portlet card widget_good">
             <header className="card-header">
-            <h2>Fox Good widget</h2>
+            <h2>Dev.to widget</h2>
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={3} />
+                <SwiperComponent data={post} slidesper={1} />
        
             </div>
         </div>
     )
 }
-export default FoxGood;
+export default Devto;

@@ -30,6 +30,9 @@ function Header(props) {
                             
                                 <a className="nav-link pageToggle educational active" data-page="learn" href="/educational">
                                         Educational 
+                                </a> 
+                                <a className="nav-link pageToggle educational active" data-page="learn" href="/entertainment">
+                                        Entertainment 
                                 </a>   
                             </div>
                     
