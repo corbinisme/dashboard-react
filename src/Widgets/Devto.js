@@ -7,7 +7,7 @@ function Devto(props) {
 
     const [post, setPost] = useState();
     let urlformat = "https://dev.to/feed";
-    const devtoUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + urlformat;
+    const devtoUrl = 'util/proxy.php?url=https://api.rss2json.com/v1/api.json?rss_url=' + urlformat;
 
     useEffect(() => {
 
@@ -20,10 +20,11 @@ function Devto(props) {
         
                 let thisArr = {
                     title: item.title,
-                    link: item.url,
+                    link: item.link,
                     enclosure: {
                         link: item.imageUrl
                     },
+                    id: item.guid,
                     description: item.description
                 };
                 tempArr.push(thisArr);
@@ -39,7 +40,7 @@ function Devto(props) {
             <h2>Dev.to widget</h2>
             </header>
             <div className="card-body">
-                <SwiperComponent data={post} slidesper={1} />
+                {post && <SwiperComponent data={post} slidesper={1} />}
        
             </div>
         </div>

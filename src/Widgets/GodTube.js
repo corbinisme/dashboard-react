@@ -24,12 +24,12 @@ function GodTube() {
         let thisPath = paths.filter(t=>t.name==path)[0].path
         const goodUrl = `util/proxy.php?url=https://www.godtube.com/media/sort/?categoryUrl=${thisPath}&sort=MostPopular&time=Today&page=1&size=15`;
         //const goodUrl = "util/godtube_scrape.php?path=" + thisPath;
-
+        console.log("fetching godtube", goodUrl)
         
         fetch(goodUrl)
         .then(response=>response.json())
         .then(dat=>{
-            //console.log("godtube", dat, dat.data);
+            console.log("godtube", dat, dat.data);
             let tempArr = [];
             dat.data.forEach(function(item){
 
@@ -44,6 +44,8 @@ function GodTube() {
                 tempArr.push(thisArr);
             })
             setPost(tempArr)
+        }).catch(err=>{
+            console.log("godtube err", err)
         });
          
       }, [path]);

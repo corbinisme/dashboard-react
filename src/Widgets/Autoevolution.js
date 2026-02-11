@@ -8,13 +8,13 @@ function Autoevolution(props) {
     const [post, setPost] = useState();
     //const goodUrl = "proxy.php?url=https://www.goodnewsnetwork.org/feed/";
     //  
-    const goodUrl = 'https://api.rss2json.com/v1/api.json?rss_url=http://feeds.feedburner.com/autoevolution/jwcA';
+    const goodUrl = 'util/proxy.php?url=https://api.rss2json.com/v1/api.json?rss_url=http://feeds.feedburner.com/autoevolution/jwcA';
     useEffect(() => {
-        console.log('trigger use effect hook');
+
         fetch(goodUrl)
         .then(response=>response.json())
         .then(dat=>{
-            console.log(dat)
+            console.log("auto",dat)
             setPost(dat.items)
         });
       }, []);
@@ -26,7 +26,7 @@ function Autoevolution(props) {
             </header>
             <div className="card-body">
 
-                <SwiperComponent data={post} slidesper={slidesper} />
+                {post && <SwiperComponent data={post} slidesper={slidesper} />  }
        
             </div>
         </div>
