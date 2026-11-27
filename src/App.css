@@ -177,3 +177,8 @@
 .menutoggle {
   width: 44px;
 }
+
+
+.nothing {
+  display: none;
+}
